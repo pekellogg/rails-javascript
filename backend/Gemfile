@@ -24,6 +24,8 @@ gem "pg"
 # PostgreSQL Install, Service Commands
 # https://www.linuxcapable.com/how-to-install-postgresql-14-on-fedora-36-linux/
 
+gem "dotenv-rails", groups: [:development, :test]
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
