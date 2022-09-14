@@ -1,3 +1,2 @@
-class ApplicationController < ActionController::API  
-  def home; end
+class ApplicationController < ActionController::API
 end

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  # index, show, new, edit, create, update, and destroy
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :action_items
+      resources :action_plans
+    end
+  end
 
-  # Defines the root path route ("/")
-  root to: "application#home"
 end
