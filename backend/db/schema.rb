@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_183255) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_182835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_183255) do
     t.string "assignees"
     t.string "status"
     t.datetime "deadline"
+    t.integer "action_plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,9 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_183255) do
     t.decimal "percent_complete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "action_item_id", null: false
-    t.index ["action_item_id"], name: "index_action_plans_on_action_item_id"
   end
 
-  add_foreign_key "action_plans", "action_items"
 end
