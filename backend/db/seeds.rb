@@ -1,19 +1,8 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
 # Examples:
-#
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-# create_table "action_items", force: :cascade do |t|
-#   t.string "assignees"
-#   t.string "status"
-#   t.datetime "deadline"
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-# end
-
 require "faker"
 require "date"
 require "pry"
@@ -30,16 +19,13 @@ biz[:goals] = goals
 biz[:categories] = categories
 biz[:deadlines] = deadlines
 
-# action_plans = ActionPlan.create(
-#   {creator: collaborators.sample, collaborators: collaborators.sample(5).uniq.join(", "), status: statuses.sample, goal: goals.sample, deadline: random_deadline, deadline_reason: deadlines.sample, category: categories.sample, percent_complete: rand(100)},
-#   {creator: collaborators.sample, collaborators: collaborators.sample(5).uniq.join(", "), status: statuses.sample, goal: goals.sample, deadline: random_deadline, deadline_reason: deadlines.sample, category: categories.sample, percent_complete: rand(100)}
-#   )
+ai_descriptions = ["Test and refine recipes submitted to portal", "Submit potential new hire resumes to portal for review", "Refill backstock items", "Locate permits and store in centralized portal", "Perform a random mock state inspection to prep", "Review, finalize, and approve food budget", "Confirm Google My Business listing info up to date", "Prep employees for upcoming reviews"]
 
 define_method :random_deadline do
   Faker::Date.between(from: Date.today, to: Date.today + 360).strftime("%m/%d/%Y")
 end
 
-def create_action_plans_seeds(int_arg, biz, container)
+def create_action_plans_seeds(int_arg, biz)
   int_arg.times do 
     ap = ActionPlan.create(
       creator: biz[:collaborators].sample,
@@ -54,7 +40,23 @@ def create_action_plans_seeds(int_arg, biz, container)
   end
 end
 
-create_action_plans_seeds(100, biz, action_plans)
+def create_action_items_seeds(int_arg, ai_descriptions)
+  ActionPlan.all.each do |ap| 
+    ap_collaborators = ap.collaborators.split(", ")
+    int_arg.times do
+      ap.action_items.create(
+        assignees: ap_collaborators.sample(ap_collaborators.count - 1).join(", "),
+        description: ai_descriptions.sample,
+        status: ap.status,
+        deadline: ap.deadline
+      )
+      binding.pry
+    end
+  end
+end
+
+create_action_plans_seeds(1, biz)
+create_action_items_seeds(5, ai_descriptions)
 
 # deadlines_test = action_plans.map { | ap | "id: #{ap.id}, deadline: #{ap.deadline}" }
 # deadlines_test.each { | i | puts i }

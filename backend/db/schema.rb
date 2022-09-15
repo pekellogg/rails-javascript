@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_182835) do
 
   create_table "action_items", force: :cascade do |t|
     t.string "assignees"
+    t.text "description"
     t.string "status"
     t.string "deadline"
     t.integer "action_plan_id"
