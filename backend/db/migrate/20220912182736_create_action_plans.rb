@@ -5,7 +5,7 @@ class CreateActionPlans < ActiveRecord::Migration[7.0]
       t.string :collaborators
       t.string :status
       t.string :goal
-      t.datetime :deadline
+      t.string :deadline
       t.string :deadline_reason
       t.string :category
       t.decimal :percent_complete

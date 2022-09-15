@@ -3,7 +3,7 @@ class CreateActionItems < ActiveRecord::Migration[7.0]
     create_table :action_items do |t|
       t.string :assignees
       t.string :status
-      t.datetime :deadline
+      t.string :deadline
       t.integer :action_plan_id
       t.timestamps
     end

@@ -35,21 +35,12 @@ biz[:deadlines] = deadlines
 #   {creator: collaborators.sample, collaborators: collaborators.sample(5).uniq.join(", "), status: statuses.sample, goal: goals.sample, deadline: random_deadline, deadline_reason: deadlines.sample, category: categories.sample, percent_complete: rand(100)}
 #   )
 
-# def random_deadline
-#   deadline = Faker::Date.between(from: Date.parse(Date.today.to_s), to: Date.parse('31/12/2022'))
-#   r_date = Date.parse(deadline.to_s).strftime("%m/%d/%Y")
-# end
-
 define_method :random_deadline do
-  deadline = Faker::Date.between(from: Date.parse(Date.today.to_s), to: Date.parse('31/12/2022'))
-  r_date = Date.parse(deadline.to_s).strftime("%m/%d/%Y")
+  Faker::Date.between(from: Date.today, to: Date.today + 360).strftime("%m/%d/%Y")
 end
 
-def create_action_plans_seeds(int_arg, biz)
-  action_plans = []
+def create_action_plans_seeds(int_arg, biz, container)
   int_arg.times do 
-    puts random_deadline
-    binding.pry
     ap = ActionPlan.create(
       creator: biz[:collaborators].sample,
       collaborators: biz[:collaborators].sample(5).uniq.join(", "),
@@ -60,9 +51,10 @@ def create_action_plans_seeds(int_arg, biz)
       category: biz[:categories].sample,
       percent_complete: rand(100)
     )
-    binding.pry
-    action_plans << ap
   end
 end
 
-create_action_plans_seeds(1, biz)
+create_action_plans_seeds(100, biz, action_plans)
+
+# deadlines_test = action_plans.map { | ap | "id: #{ap.id}, deadline: #{ap.deadline}" }
+# deadlines_test.each { | i | puts i }

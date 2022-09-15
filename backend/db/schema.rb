@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_182835) do
   create_table "action_items", force: :cascade do |t|
     t.string "assignees"
     t.string "status"
-    t.datetime "deadline"
+    t.string "deadline"
     t.integer "action_plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_182835) do
     t.string "collaborators"
     t.string "status"
     t.string "goal"
-    t.datetime "deadline"
+    t.string "deadline"
     t.string "deadline_reason"
     t.string "category"
     t.decimal "percent_complete"
