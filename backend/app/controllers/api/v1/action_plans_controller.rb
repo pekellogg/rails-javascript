@@ -1,28 +1,30 @@
 class Api::V1::ActionPlansController < ApplicationController
-  wrap_parameters ActionPlan # https://api.rubyonrails.org/v7.0.4/classes/ActionController/ParamsWrapper.html
+  # wrap_parameters ActionPlan # https://api.rubyonrails.org/v7.0.4/classes/ActionController/ParamsWrapper.html
   
   def index
     @action_plans = ActionPlan.all
-    render @action_plans
+    # render json: @action_plans
+    render json: ActionPlanSerializer.new(@action_plans).serialize_json
   end
-
-  # def new
-  # end
 
   def create
     @action_plan = ActionPlan.create(action_plan_params)
-    render @action_plan if @action_plan.save
+    render json: @action_plan if @action_plan.save
   end
 
   def show
     @action_plan = ActionPlan.find(params[:id])
+    render json: @action_plan
   end
-
-  # def edit
-  # end
 
   def update
     @action_plan = ActionPlan.find(params[:id])
+    if @action_plan.update(action_plan_params)
+      render json: @action_plan
+    else
+      # server error if not found
+      render json: { status: 500 }
+    end
   end
 
   def destroy

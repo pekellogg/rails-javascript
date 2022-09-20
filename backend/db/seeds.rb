@@ -1,11 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-# Examples:
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+# Character.create(name: "Luke", movie: movies.first)
 require "faker"
 require "date"
-require "pry"
 
 biz = {}
 categories = %w(Recipes Management Finance-Budget Inventory Technical Brand Social Media Event)
@@ -50,13 +46,30 @@ def create_action_items_seeds(int_arg, ai_descriptions)
         status: ap.status,
         deadline: ap.deadline
       )
-      binding.pry
     end
   end
 end
 
-create_action_plans_seeds(1, biz)
+create_action_plans_seeds(100, biz)
 create_action_items_seeds(5, ai_descriptions)
 
-# deadlines_test = action_plans.map { | ap | "id: #{ap.id}, deadline: #{ap.deadline}" }
-# deadlines_test.each { | i | puts i }
+# JS Testing
+# require "rest-client"
+# require "pry"
+
+# action_plan_url = "http://localhost/api/v1/action_plans/"
+# call = RestClient.get action_plan_url
+
+# 20.times do |i|
+#   i += 1
+#   action_plan = RestClient.get "#{action_plan_url}#{i}"
+#   action_plan_json = JSON.parse(action_plan)
+#   # ActionPlan.create(
+#   # )
+# end
+
+# 60.times do |i|
+#   i += 1
+#   # ActionItem.create(
+#   # )
+# end

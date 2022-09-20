@@ -2,12 +2,79 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Beat-Machine</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="./src/index.js"></script>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>Organize My Business</title>
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <header></header>
-    <footer></footer>
+
+    <header>
+      <!-- introductory content; group of introductory/nav aids
+      heading elements and also logos, search form, an author name-->
+
+      <div class="circle-indication">
+        <span class="circle-glyph" id="left">&#x26AA;</span>
+        <span class="circle-glyph" id="right">&#x26AA;</span>
+      </div><br><br><br>
+
+      <nav>
+        <div id="nav">
+          <div id="do">
+          </div>
+          <div id="done">
+          </div>
+        </div>
+      </nav>
+
+      <!-- CREATE ACTION PLAN -->
+      <div class="form">
+        <form id="new-action-plan">
+          Creator<br><input type="text" name="creator" placeholder="Your name/the name of the action plan creator" maxlength="200" required><br><br>
+          Goal<br><input type="text" name="goal" placeholder="Brief description of the goal/reason for this action plan" maxlength="200" required><br><br>
+          Collaborators<br><input type="text" name="collaborators" placeholder="Comma separated list of people that should be responsible for completing" maxlength="200" required><br><br>
+          Deadline<br><input type="text" name="deadline" placeholder="A date for the entire action plan (including sub action items) to be completedy by" maxlength="200" required><br><br>
+          Deadline Reason<br><input type="text" name="deadline_reason" placeholder="Ex: 'I'm going out of town on X date, so this should be done before then, etc...'" maxlength="200" required><br><br>
+          <!-- category dropdown TBD-->
+          <input type="submit" value="Create">
+        </form>
+      </div>
+
+
+    </header>
+
+    <main>
+      <div id="main">
+
+      <!-- CREATE ACTION ITEM -->
+      <form id="new-action-item">
+        <input type="hidden" name="form_id" value="<%=@form.id%>">
+        <input type="text" name="text" placeholder="Add comment" maxlength="200" required>
+        <input type="submit" value="Create">
+      </form>
+
+      <!-- UPDATE -->
+      <form id="edit-action-item">
+        <input value="PATCH" id="hidden" type="hidden" name="_method">
+        <input type="text" name="text" value="<%=@comment.text%>">
+        <input type="submit" value="Save">
+      </form>
+
+      <!-- DESTROY -->
+      <form id="destroy-action-item">
+        <input value="delete" id="hidden" type="hidden" name="_method">
+        <input type="submit" value="Delete">
+      </form>
+
+      </div>
+    </main>
+    
   </body>
+
+  <script type="text/javascript" src="./src/components/actionPlan.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./src/components/actionItem.js" charset="utf-8"></script>
+
+  <script type="text/javascript" src="./src/adapters/ActionPlansAdapter.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./src/adapters/ActionItemsAdapter.js" charset="utf-8"></script>
+
+  <script type="text/javascript" src="./src/index.js" charset="utf-8"></script>
 </html>

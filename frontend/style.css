@@ -1,0 +1,96 @@
+/* CLASS-BASED STYLING */
+
+.activated-circle {
+  color: black;
+}
+
+.inactive-circle {
+  color: white;
+}
+
+/* .anchor {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+
+.anchor:hover {
+  background-color: #4CAF50;
+  color: white;
+} */
+
+.form {
+  width: auto;
+  /* border: 5px solid green; */
+  padding: 15px;
+  margin: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.circle-indication {
+  width: auto;
+  /* border: .5px solid green; */
+  padding: 15px;
+  margin: 5px;
+  text-align: center;
+  display: grid;
+  grid-auto-flow: column;
+
+  /* space between circles */
+  /* grid-column-gap: 5px; */
+}
+
+
+
+/* ID-BASED STYLING */
+
+/* #nav {
+} */
+
+
+
+/* ELEMENT-BASED STYLING */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  height: 100%;
+  /* font-family: TBD, */
+}
+
+/* soft edges */
+button, div, input, textarea {
+  border-radius: 3px;
+
+  /* container visibility in development */
+  border: 5px solid green;
+}
+
+input {
+	outline: none;
+	/* border: none; */
+}
+
+input:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+input.long {
+  width: 75%;
+}
+
+input.submit {
+  /* border: 2px solid green; */
+  padding: 15px;
+  margin: 20px;
+}
