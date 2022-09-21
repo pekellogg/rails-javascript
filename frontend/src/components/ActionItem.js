@@ -1,4 +1,4 @@
-class actionItem {
+class ActionItem {
   constructor(actionItemJSON) {
     this.id = actionItemJSON.id
     this.assignees = actionItemJSON.assignees
@@ -7,4 +7,13 @@ class actionItem {
     this.deadline = actionItemJSON.deadline
     this.action_plan_id = actionItemJSON.action_plan_id
   }
+
+  actionItemBindings() {
+
+  }
+
+  renderActionItem() {
+
+  }
+
 }

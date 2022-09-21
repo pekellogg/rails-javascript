@@ -1,5 +1,3 @@
-/* CLASS-BASED STYLING */
-
 .activated-circle {
   color: black;
 }
@@ -8,56 +6,38 @@
   color: white;
 }
 
-/* .anchor {
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-}
-
-.anchor:hover {
-  background-color: #4CAF50;
-  color: white;
-} */
-
 .form {
   width: auto;
-  /* border: 5px solid green; */
   padding: 15px;
   margin: 20px;
 }
 
 .hidden {
   visibility: hidden;
+  border: none;
 }
 
 .circle-indication {
   width: auto;
-  /* border: .5px solid green; */
   padding: 15px;
   margin: 5px;
   text-align: center;
   display: grid;
   grid-auto-flow: column;
-
   /* space between circles */
   /* grid-column-gap: 5px; */
 }
 
-
-
-/* ID-BASED STYLING */
-
-/* #nav {
-} */
-
-
-
-/* ELEMENT-BASED STYLING */
+nav, nav > * {
+  width: auto;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  display: grid;
+  grid-auto-flow: column;
+  /* space between elements */
+  grid-column-gap: 10px;
+}
 
 body, html {
   margin: 0;
@@ -70,9 +50,9 @@ body, html {
 /* soft edges */
 button, div, input, textarea {
   border-radius: 3px;
-
   /* container visibility in development */
-  border: 5px solid green;
+  padding: 5px;
+  border: 5px solid rgba(0, 0, 0, .2);
 }
 
 input {
@@ -80,17 +60,16 @@ input {
 	/* border: none; */
 }
 
-input:hover {
+input:hover, button:hover {
   background-color: #4CAF50;
   color: white;
 }
 
-input.long {
-  width: 75%;
-}
-
 input.submit {
-  /* border: 2px solid green; */
   padding: 15px;
   margin: 20px;
+}
+
+.show {
+  display: block;
 }
