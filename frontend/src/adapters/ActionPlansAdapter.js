@@ -6,7 +6,11 @@ class ActionPlansAdapter {
 
   // index
   getActionPlans() {
-    return fetch(this.endPoint).then(response => { return response.json() });
+    // return fetch(this.endPoint).then(response => { console.log(response.json()) });
+    return fetch(this.endPoint)
+    .then(response => { 
+      return response.json() 
+    });
   }
 
   // create

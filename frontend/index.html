@@ -37,17 +37,20 @@
             Collaborators<br><input class="createActionPlanDiv" type="text" name="collaborators" placeholder="Comma separated list of people that should be responsible for completing" maxlength="200" required><br><br>
             Deadline<br><input class="createActionPlanDiv" type="text" name="deadline" placeholder="A date for the entire action plan (including sub action items) to be completedy by" maxlength="200" required><br><br>
             Deadline Reason<br><input class="createActionPlanDiv" type="text" name="deadline_reason" placeholder="Ex: 'I'm going out of town on X date, so this should be done before then, etc...'" maxlength="200" required><br><br>
-            <input class="createActionPlanDiv" type="submit" value="Create">
             <button type="submit" name="createActionPlanDiv" id="createActionPlanBtn" class="createActionPlanDiv">Create</button>
           </form>
         </div>
 
         <div id="action-plans-div" class="hidden">
           ACTION-PLANS inner text
+          <div id="action-plans-div-child">
+          </div>
         </div>
 
         <div id="action-items-div" class="hidden">
           ACTION-ITEMS inner text
+          <div id="action-items-div-child">
+          </div>
         </div>
 
       </div>
@@ -55,7 +58,9 @@
     
   </body>
   <script type="text/javascript" src="./src/components/ActionPlans.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./src/components/ActionPlan.js" charset="utf-8"></script>
   <script type="text/javascript" src="./src/components/ActionItems.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./src/components/ActionItem.js" charset="utf-8"></script>
 
   <script type="text/javascript" src="./src/components/Application.js" charset="utf-8"></script>
 

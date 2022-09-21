@@ -1,6 +1,6 @@
 class ActionPlan {
   constructor(apJSON) {
-    this.id = apJSON.id
+    // this.id = apJSON.id
     this.creator = apJSON.creator
     this.collaborators = apJSON.collaborators
     this.status = apJSON.status
@@ -9,38 +9,44 @@ class ActionPlan {
     this.deadline_reason = apJSON.deadline_reason
     this.category = apJSON.category
     this.percent_complete = apJSON.percent_complete
-    this.bindings();
-    this.listeners();
-    this.elements = this.createElements();
-    this.render = this.render();
+    this.bindingsAndListeners();
+    this.render();
   }
 
-  bindings() {
-    this.heading = document.getElementById("action-plan");
-  }
-
-  listeners() {
-    this.actionPlan.addEventListener("click", this.render.bind(this));
+  bindingsAndListeners() {
+    this.view = document.getElementById("action-plans-div-child");
   }
 
   render() {
-    console.log(`ActionPlans render()`);
-    this.elements.foreach(p => this.heading.appendChild())
-  }
+    const div = document.createElement("div");
+    div.setAttribute("id", this.goal);
+    this.view.appendChild(div);
 
-  createElements() {
-    elements = []
-    for (const key in this) {
-      const p = document.createElement("p");
-      p.innerText = `${this[key]}`
-      elements.push(p)
+    const p1 = document.createElement("p");
+    p1.innerText = `Action Plan: ${this.goal}`;
+    div.appendChild(p1);
+
+    const p2 = document.createElement("p");
+    p2.innerText = `Created by: ${this.creator}`
+    div.appendChild(p2);
+
+    const p3 = document.createElement("p");
+    p3.innerText = `To be completed by: ${this.deadline}`
+    div.appendChild(p3);
+
+    const p4 = document.createElement("p");
+    p4.innerText = `For reason: "${this.deadline_reason}"`
+    div.appendChild(p4);
+
+    let collabos = this.collaborators.split(", ")
+    let unordered = document.createElement("ul");
+    for (const i in collabos) {
+      let li = document.createElement("li");
+      li.innerText = collabos[i];
+      unordered.appendChild(li);
     }
-    return elements;
+    div.appendChild(unordered);
   }
-
-  // renderCollection(items) {
-  //   new ActionItems(items, this);
-  // }
 
   // updateCollection(items) {
   //   // update = this.ActionItems//.find

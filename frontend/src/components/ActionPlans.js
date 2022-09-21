@@ -1,34 +1,28 @@
 class ActionPlans {
   constructor() {
-    // console.log(`ActionPlans constructor()`);
     this.actionPlans = [];
     this.adapter = new ActionPlansAdapter();
     this.bindingsAndListeners();
     this.getLoad();
-    this.renderAll();
   }
 
   bindingsAndListeners() {
-    this.view = document.getElementById("action-plans");
+    this.view = document.getElementById("action-plans-div");
   }
 
   getLoad() {
-    // console.log(`ActionPlans getLoad()`);
     this.adapter.getActionPlans()
     .then(actionPlans => {
-      actionPlans.forEach(actionPlan => this.actionPlans.push(actionPlan))
+      actionPlans.forEach(ap => 
+        this.actionPlans.push(new ActionPlan(ap)))
     })
     .then(() => {
+      this.renderAll();
     })
   }
 
-  // setActionPlans() {
-  //   this.actionPlans.forEach(ap => this.setActionPlan(ap))
-  // }
-  
   renderAll() {
-    console.log(`ActionPlans renderAll()`);
-    // console.log(this.actionPlans);
+    this.actionPlans.forEach(actionPlan => { actionPlan.render() })
   }
 
 }
