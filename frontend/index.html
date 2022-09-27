@@ -29,29 +29,37 @@
 
     <main>
       <div id="main">
-        MAIN inner text
+
         <div id="new-action-plan-container" class="hidden">
-          <form id="new-action-plan" class="createActionPlanDiv">
-            Creator<br><input class="createActionPlanDiv" type="text" name="creator" placeholder="Your name/the name of the action plan creator" maxlength="200" required><br><br>
-            Goal<br><input class="createActionPlanDiv" type="text" name="goal" placeholder="Brief description of the goal/reason for this action plan" maxlength="200" required><br><br>
-            Collaborators<br><input class="createActionPlanDiv" type="text" name="collaborators" placeholder="Comma separated list of people that should be responsible for completing" maxlength="200" required><br><br>
-            Deadline<br><input class="createActionPlanDiv" type="text" name="deadline" placeholder="A date for the entire action plan (including sub action items) to be completedy by" maxlength="200" required><br><br>
-            Deadline Reason<br><input class="createActionPlanDiv" type="text" name="deadline_reason" placeholder="Ex: 'I'm going out of town on X date, so this should be done before then, etc...'" maxlength="200" required><br><br>
-            <button type="submit" name="createActionPlanDiv" id="createActionPlanBtn" class="createActionPlanDiv">Create</button>
+          <form id="create-action-plan" class="createActionPlanDiv">
+            Creator
+            <br><br>
+            <textarea class="createActionPlanDiv" type="text" name="creator" id="creator" placeholder="Your name/the name of the action plan creator" maxlength="200" required></textarea><br><br>
+
+            Goal
+            <br><br>
+            <textarea class="createActionPlanDiv" type="text" name="goal" id="goal" placeholder="Brief description of the goal/reason for this action plan" maxlength="200" required></textarea><br><br>
+
+            Collaborators
+            <br><br>
+            <textarea class="createActionPlanDiv" type="text" name="collaborators" id="collaborators" placeholder="Comma separated list of people that should be responsible for completing" maxlength="200" required></textarea><br><br>
+
+            Deadline
+            <br><br>
+            <textarea class="createActionPlanDiv" type="text" name="deadline" id="deadline" placeholder="A date for the entire action plan (including sub action items) to be completedy by" maxlength="200" required></textarea><br><br>
+
+            Deadline Reason
+            <br><br>
+            <textarea class="createActionPlanDiv" type="text" name="deadline_reason" id="deadline_reason" placeholder="Ex: 'I'm going out of town on X date, so this should be done before then, etc...'" maxlength="200" required></textarea><br><br>
+            
+            <button type="submit" name="createActionPlanDiv" id="createActionPlanBtn" class="createActionPlanDiv">
+              Create
+            </button>
           </form>
         </div>
 
-        <div id="action-plans-div" class="hidden">
-          ACTION-PLANS inner text
-          <div id="action-plans-div-child">
-          </div>
-        </div>
-
-        <div id="action-items-div" class="hidden">
-          ACTION-ITEMS inner text
-          <div id="action-items-div-child">
-          </div>
-        </div>
+        <div id="action-plans-div" class="hidden"></div>
+        <div id="action-items-div" class="hidden"></div>
 
       </div>
     </main>

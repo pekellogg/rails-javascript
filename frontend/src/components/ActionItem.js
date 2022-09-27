@@ -11,11 +11,12 @@ class ActionItem {
   }
 
   bindingsAndListeners() {
-    this.view = document.getElementById("action-items-div-child");
+    this.view = document.getElementById("action-items-div");
   }
 
   render() {
     const div = document.createElement("div");
+    div.setAttribute("class", "action-item-js");
     div.setAttribute("id", this.description);
     this.view.appendChild(div);
 

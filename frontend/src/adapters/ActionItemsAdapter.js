@@ -36,7 +36,7 @@ class ActionItemsAdapter {
   getActionItem(actionItemID) {
     return fetch(`${this.endPoint}/${actionItemID}`)
     .then(response => {
-      response.json()
+      return response.json()
     });
   }
 

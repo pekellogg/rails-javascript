@@ -1,14 +1,5 @@
-class ActionItemSerializer
-
-  def initialize(action_item)
-    @action_item = action_item
-  end
-
-  def serialize_json
-    options = {
-      only: [:assignees, :description, :status, :deadline]
-    }
-    @action_item.to_json(options)
-  end
-
+class ActionItemSerializer < ActiveModel::Serializer
+  # attributes :id, :assignees, :description, :status, :deadline, :action_plan_id, :created_at, :updated_at
+  attributes :description, :status, :deadline, :assignees, :action_plan_id
+  belongs_to :action_plan, serializer: ActionPlanActionItemSerializer
 end

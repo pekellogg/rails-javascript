@@ -9,8 +9,8 @@ class Application {
     this.createActionPlanDiv = document.getElementById("new-action-plan-container");
     this.body = document.body;
 
-    this.CreateActionPlanButton = document.getElementById("new-action-plan-button");
-    this.CreateActionPlanButton.addEventListener("click", this.toggleCreateActionPlan);
+    this.createActionPlanButton = document.getElementById("new-action-plan-button");
+    this.createActionPlanButton.addEventListener("click", this.toggleCreateActionPlan);
 
     this.toggleActionPlansButton = document.getElementById("action-plans-button");
     this.toggleActionPlansButton.addEventListener("click", this.toggleActionPlans);

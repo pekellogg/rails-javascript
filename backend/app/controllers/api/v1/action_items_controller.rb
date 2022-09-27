@@ -1,6 +1,7 @@
+require "pry"
 class Api::V1::ActionItemsController < ApplicationController
   # wrap_parameters ActionItem # https://api.rubyonrails.org/v7.0.4/classes/ActionController/ParamsWrapper.html
-  
+
   def index
     @action_items = ActionItem.all
     render json: @action_items
@@ -8,11 +9,22 @@ class Api::V1::ActionItemsController < ApplicationController
 
   def create
     @action_item = ActionItem.create(action_item_params)
-    render json: @action_item if @action_item.save
+    if @action_item.save
+      render json: @action_item 
+    else
+      # client error if not saved; 400 Bad Request
+      render json: { status: 400 }
+    end
   end
 
   def show
     @action_item = ActionItem.find(params[:id])
+    if @action_item
+      render json: @action_item
+    else
+      # server error if not found
+      render json: { status: 500 }
+    end
   end
 
   def update
@@ -20,8 +32,8 @@ class Api::V1::ActionItemsController < ApplicationController
     if @action_item.update(action_item_params)
       render json: @action_item
     else
-      # server error if not found
-      render json: { status: 500 }
+      # client error if no update; 400 Bad Request
+      render json: { status: 400 }
     end
   end
 

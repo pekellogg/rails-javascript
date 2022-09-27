@@ -11,6 +11,10 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 # gem "pg", "~> 1.1"
 gem "pg"
 
+# no external serializers needed if Rails version >= 5
+# Use ActiveModel::Serializer
+gem "active_model_serializers"
+
 # PERSONAL CONFIG: 
 # $ uname -a
 # Linux fedora 5.19.4-200.fc36.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Aug 25 17:42:04 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux

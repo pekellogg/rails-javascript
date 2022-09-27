@@ -13,19 +13,9 @@
 }
 
 .hidden {
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none;
   border: none;
-}
-
-.circle-indication {
-  width: auto;
-  padding: 15px;
-  margin: 5px;
-  text-align: center;
-  display: grid;
-  grid-auto-flow: column;
-  /* space between circles */
-  /* grid-column-gap: 5px; */
 }
 
 nav, nav > * {
@@ -47,12 +37,28 @@ body, html {
   /* font-family: TBD, */
 }
 
+div#new-action-plan-container, div#new-action-plan-container > *
+/* div#action-plans-div,
+div#action-items-div */
+ {
+  position:fixed;
+  bottom: 90%;
+  left: 40px;
+  top: 100px;
+  width: 90%;
+  background-color: yellow;
+}
+
 /* soft edges */
 button, div, input, textarea {
   border-radius: 3px;
   /* container visibility in development */
   padding: 5px;
   border: 5px solid rgba(0, 0, 0, .2);
+}
+
+div#main {
+  border: none;
 }
 
 input {
@@ -65,9 +71,13 @@ input:hover, button:hover {
   color: white;
 }
 
-input.submit {
-  padding: 15px;
-  margin: 20px;
+textarea {
+  width: 95%;
+}
+
+textarea:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 .show {

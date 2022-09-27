@@ -2,19 +2,21 @@ class ActionItems {
   constructor(actionItemJSON) {
     this.actionItems = [];
     this.adapter = new ActionItemsAdapter();
-    this.bindingsAndListeners();
+    // this.bindingsAndListeners();
     this.getLoad();
   }
 
-  bindingsAndListeners() {
-    this.view = document.getElementById("action-items-div");
-  }
+  // bindingsAndListeners() {}
 
   getLoad() {
     this.adapter.getActionItems()
+    // .then(actionItems => {
+    //   actionItems.forEach(ai => 
+    //     this.actionItems.push(new ActionItem(ai)))
+    // })
     .then(actionItems => {
-      actionItems.forEach(ai => 
-        this.actionItems.push(new ActionItem(ai)))
+      // console.log(actionItems);
+      actionItems.forEach(ai => this.actionItems.push(new ActionItem(ai)))
     })
     .then(() => {
       this.renderAll();
