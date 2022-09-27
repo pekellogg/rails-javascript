@@ -1,6 +1,5 @@
 class ActionPlansAdapter {
-  constructor(){
-    // console.log(`ActionPlansAdapter constructor()`);
+  constructor() {
     this.endPoint = "http://localhost:3000/api/v1/action_plans"
   }
 
@@ -11,12 +10,24 @@ class ActionPlansAdapter {
   }
 
   // create
-  // createActionPlan(apfromForm) {}
+  createActionPlan(apfromForm) {
+    return fetch(this.endPoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(apfromForm)
+    })
+    .then(response => response.json()) 
+    .catch(error => console.log(error));
+  }
 
   // read/show
   getActionPlan(actionPlanID) {
     return fetch(`${this.endPoint}/${actionPlanID}`)
-    .then(response => response.json());
+    .then(response => response.json())
+    .catch(error => console.log(error));
   }
 
   // update

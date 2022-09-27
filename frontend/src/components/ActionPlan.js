@@ -1,19 +1,5 @@
 class ActionPlan {
   constructor(apJSON) {
-    // before: no bound methods
-    // // this.id = apJSON.id
-    // this.creator = apJSON.creator
-    // this.collaborators = apJSON.collaborators
-    // // this.status = apJSON.status
-    // this.goal = apJSON.goal
-    // this.deadline = apJSON.deadline
-    // this.deadline_reason = apJSON.deadline_reason
-    // // this.category = apJSON.category
-    // // this.percent_complete = apJSON.percent_complete
-    // this.bindingsAndListeners();
-    // this.render();
-
-    // after: testing bound methods
     // this.id = apJSON.id
     this.creator = apJSON.creator;
     this.collaborators = apJSON.collaborators;
@@ -32,7 +18,6 @@ class ActionPlan {
   }
 
   render() {
-    // test as instance to be returned
     const div = document.createElement("div");
     div.setAttribute("class", "action-plan-js");
     div.setAttribute("id", this.goal);
@@ -53,16 +38,29 @@ class ActionPlan {
     const p4 = document.createElement("p");
     p4.innerText = `For reason: "${this.deadline_reason}"`
     div.appendChild(p4);
-    // console.log(this);
+
     // let collabos = this.collaborators.split(", ")
-    let unordered = document.createElement("ul");
+    // let unordered = document.createElement("ul");
     // for (const i in collabos) {
     //   let li = document.createElement("li");
     //   li.innerText = collabos[i];
     //   unordered.appendChild(li);
     // }
-    div.appendChild(unordered);
+    // div.appendChild(unordered);
+
+    // div.addEventListener("click", this.show());
   }
+
+  // READ
+  // show() {
+
+  // }
+
+  // UPDATE
+  // update() {}
+
+  // DESTROY
+  // destroy() {}
 
   // updateCollection(items) {
   //   // update = this.ActionItems//.find

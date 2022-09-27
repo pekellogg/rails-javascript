@@ -28,47 +28,45 @@ class ActionPlans {
       actionPlans.forEach(ap => this.actionPlans.push(new ActionPlan(ap)))
     })
     .then(() => this.renderAll())
-    .catch((error) => console.log(error))
+    .catch(error => console.log(error))
   }
 
   renderAll() {
     this.actionPlans.forEach(actionPlan => actionPlan.render())
   }
 
+  // // WORKS
+  // createActionPlan(e) {
+  //   e.preventDefault(); // SubmitEvent
+  //   return fetch(this.adapter.endPoint, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
+  //     },
+  //     body: JSON.stringify({creator: this.createForm.creator.value,
+  //       goal: this.createForm.goal.value,
+  //       collaborators: this.createForm.collaborators.value,
+  //       deadline: this.createForm.deadline.value,
+  //       deadline_reason: this.createForm.deadline_reason.value
+  //     })
+  //   })
+  //   .then(response => response.json()) 
+  //   .catch(error => console.log(error));
+  // }
+
+  // CREATE
   createActionPlan(e) {
     e.preventDefault(); // SubmitEvent
-    // WORKS
-    return fetch(this.adapter.endPoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({creator: this.createForm.creator.value,
-        goal: this.createForm.goal.value,
-        collaborators: this.createForm.collaborators.value,
-        deadline: this.createForm.deadline.value,
-        deadline_reason: this.createForm.deadline_reason.value
-      })
-    })
-    .then((response) => {
-      // console.log(response.json());
-      return response.json();
-    }) 
-    .catch((error) => {
-      console.log(error);
-    });
-  }
-
-  setActionPlan() {
-    // console.log(`setactionPlan() via components/actionPlans`)
-    this.actionPlan.render()
-    // reset fields
-    this.creatorField.value = ""
-    this.goalField.value = ""
-    this.collaboratorsField.value = ""
-    this.deadlineField.value = ""
-    this.deadlineReasonField.value = ""
+    const newAP = {
+      creator: this.createForm.creator.value,
+      goal: this.createForm.goal.value,
+      collaborators: this.createForm.collaborators.value,
+      deadline: this.createForm.deadline.value,
+      deadline_reason: this.createForm.deadline_reason.value
+    }
+    this.adapter.createActionPlan(newAP);
+    this.createForm.reset();
   }
 
 }
