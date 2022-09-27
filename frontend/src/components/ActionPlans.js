@@ -23,27 +23,21 @@ class ActionPlans {
   }
 
   getLoad() {
-    // console.log(`a`);
     this.adapter.getActionPlans()
     .then(actionPlans => {
-      // console.log(`b`)
-      actionPlans.forEach(ap => 
-        this.actionPlans.push(new ActionPlan(ap)))
+      actionPlans.forEach(ap => this.actionPlans.push(new ActionPlan(ap)))
     })
-    .then(() => {
-      // console.log(`c`)
-      this.renderAll();
-    })
-    // console.log(`d`)
+    .then(() => this.renderAll())
+    .catch((error) => console.log(error))
   }
 
   renderAll() {
-    this.actionPlans.forEach(actionPlan => { actionPlan.render() })
+    this.actionPlans.forEach(actionPlan => actionPlan.render())
   }
 
   createActionPlan(e) {
     e.preventDefault(); // SubmitEvent
-
+    // WORKS
     return fetch(this.adapter.endPoint, {
       method: "POST",
       headers: {

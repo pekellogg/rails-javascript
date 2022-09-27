@@ -6,45 +6,17 @@ class ActionPlansAdapter {
 
   // index
   getActionPlans() {
-    // console.log(`e`)
     return fetch(this.endPoint)
-    .then(response => { 
-      // console.log(`f`)
-      return response.json() // .json returns promise too! look into
-    });
+    .then(response => response.json());
   }
-
-  // Content-Security-Policy: <policy-directive>; <policy-directive>
-  // where <policy-directive> consists of: <directive> <value> with no internal punctuation.
 
   // create
-  createActionPlan(apfromForm) {
-
-    // console.log(apfromForm);
-
-    return fetch(this.endPoint, {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({ apfromForm })
-    })
-    .then((response) => {
-      return response.json()
-    }) 
-    .catch((error) => {
-      console.log(error)
-    });
-  }
+  // createActionPlan(apfromForm) {}
 
   // read/show
   getActionPlan(actionPlanID) {
     return fetch(`${this.endPoint}/${actionPlanID}`)
-    .then(response => {
-      return response.json()
-    });
+    .then(response => response.json());
   }
 
   // update
